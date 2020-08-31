@@ -289,6 +289,7 @@ inline void openChromaDevice(struct hid_device** hdev, unsigned int* numHdev, st
 					intf->cur_altsetting = (struct usb_host_interface*)malloc(sizeof(struct usb_host_interface));
 
 					intf->cur_altsetting->desc.bInterfaceProtocol = 0;// interface_descriptor.bInterfaceProtocol;
+					intf->cur_altsetting->desc.bInterfaceSubClass = 0xFF;
 
 					/*---------------------------------------------------------*\
 					| Allocate buffer for USB device structure                  |
