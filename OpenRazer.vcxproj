@@ -38,7 +38,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -75,7 +75,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>$(ProjectName)64</TargetName>
-    <OutDir>$(SolutionDir)</OutDir>
+    <OutDir>$(SolutionDir)\Output\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <TargetName>$(ProjectName)64</TargetName>
@@ -123,11 +123,16 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(ProjectDir);dependencies\hidapi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(ProjectDir)$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>dependencies\hidapi-win\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ForceFileOutput>
+      </ForceFileOutput>
+      <AdditionalOptions>/FORCE %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
