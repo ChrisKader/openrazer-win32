@@ -16,10 +16,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinuxEmulation", "linux\Lin
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedFiles", "SharedFiles", "{0FC711BC-A2D1-4133-B39C-22C6F7B66614}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\Downloads\hidapi-win\x64\hidapi.dll = ..\..\..\Downloads\hidapi-win\x64\hidapi.dll
-		..\..\..\Downloads\hidapi-win\x64\hidapi.lib = ..\..\..\Downloads\hidapi-win\x64\hidapi.lib
-		..\..\..\Downloads\hidapi-win\x64\hidapi.pdb = ..\..\..\Downloads\hidapi-win\x64\hidapi.pdb
+		dependencies\hidapi-win\x64\hidapi.dll = dependencies\hidapi-win\x64\hidapi.dll
+		dependencies\hidapi-win\x64\hidapi.lib = dependencies\hidapi-win\x64\hidapi.lib
+		dependencies\hidapi-win\x64\hidapi.pdb = dependencies\hidapi-win\x64\hidapi.pdb
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B92E5173-FE62-4B9E-A205-2586DFE3699F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

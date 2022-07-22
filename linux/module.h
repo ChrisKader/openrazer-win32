@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <hidapi/hidapi.h>
 
+#define HID_
 #define MODULE_AUTHOR( __Declaration__ )
 #define MODULE_DESCRIPTION( __Declaration__ )
 #define MODULE_VERSION( __Declaration__ )
@@ -157,7 +158,6 @@ inline int usb_control_msg
 		\*---------------------------------------------------------*/
 		int			  cbSent = 0;
 		unsigned char pkt[91];
-
 		/*---------------------------------------------------------*\
 		| Set the report index and copy the report into the buffer  |
 		\*---------------------------------------------------------*/
@@ -204,7 +204,7 @@ inline int device_create_file(struct device *device, struct device_attribute *en
 {
 	if (device->attr_count < 64)
 	{
-		printf("device_create_file - Adding %s to list\n", entry->name);
+		//printf("device_create_file - Adding %s to list\n", entry->name);
 		device->attr_list[device->attr_count] = entry;
 		device->attr_count++;
 	}

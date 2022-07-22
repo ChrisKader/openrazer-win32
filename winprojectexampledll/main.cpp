@@ -271,6 +271,7 @@ int main(int argc, char** argv)
 
     hdev = NULL;
     num = init_razer_kbd_driver(&hdev);
+    printf("Found %d keyboards!\n",num);
     for (unsigned int i = 0; i < num; i++)
     {
         device_fn_type new_dev;
@@ -281,16 +282,19 @@ int main(int argc, char** argv)
 
     hdev = NULL;
     num = init_razer_mouse_driver(&hdev);
+    printf("Found %d mice!\n", num);
     for (unsigned int i = 0; i < num; i++)
     {
         device_fn_type new_dev;
         load_device_fn(&new_dev, &hdev[i].dev);
+        printf("%d\n",&hdev[i].type);
         devs.push_back(&hdev[i].dev);
         devices.push_back(new_dev);
     }
 
     hdev = NULL;
     num = init_razer_accessory_driver(&hdev);
+    printf("Found %d accessories!\n", num);
     for (unsigned int i = 0; i < num; i++)
     {
         device_fn_type new_dev;
@@ -301,6 +305,7 @@ int main(int argc, char** argv)
 
     hdev = NULL;
     num = init_razer_kraken_driver(&hdev);
+    printf("Found %d krackens!\n", num);
     for (unsigned int i = 0; i < num; i++)
     {
         device_fn_type new_dev;
