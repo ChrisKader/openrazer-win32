@@ -4,7 +4,7 @@
 #include <hidapi/hidapi.h>
 
 #pragma comment(lib, "hidapi.lib")
-
+#define HID_INPUT_REPORT				0
 #define HID_STAT_ADDED					1
 #define HID_STAT_PARSED					2
 
