@@ -1,3 +1,4 @@
 [submodule "openrazer"]
 	path = openrazer
 	url = https://github.com/ChrisKader/openrazer
+	branch = windows
