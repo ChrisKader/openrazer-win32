@@ -39,6 +39,11 @@ typedef struct
     struct device_attribute* device_type;
     struct device_attribute* device_serial;
     struct device_attribute* firmware_version;
+    struct device_attribute* poll_rate;
+    struct device_attribute* dpi;
+    struct device_attribute* dpi_stages;
+    struct device_attribute* device_mode;
+    struct device_attribute* device_idle_time;
 
     struct device_attribute* matrix_custom_frame;
     struct device_attribute* matrix_brightness;
@@ -92,7 +97,7 @@ typedef struct
 
 typedef struct
 {
-    struct device_attribute* dev_attr_list[44];
+    struct device_attribute* dev_attr_list[49];
 } device_fn_list_type;
 
 /*---------------------------------------------------------*\
@@ -104,7 +109,11 @@ static const char* device_fn_names[] =
     "device_type",
     "device_serial",
     "firmware_version",
-
+    "poll_rate",
+    "dpi",
+    "dpi_stages",
+    "device_mode",
+    "device_idle_time",
     "matrix_custom_frame",
     "matrix_brightness",
 
@@ -163,7 +172,7 @@ static void load_device_fn(device_fn_type* device_fn, device* dev)
 {
     memset(device_fn, 0, sizeof(device_fn_type));
 
-    for (int table_idx = 0; table_idx < 44; table_idx++)
+    for (int table_idx = 0; table_idx < 49; table_idx++)
     {
         for (int list_idx = 0; list_idx < dev->attr_count; list_idx++)
         {
@@ -299,7 +308,21 @@ int main(int argc, char** argv)
         devs.push_back(&hdev[i].dev);
         devices.push_back(new_dev);
     }
-
+    /*
+    for (int dev_idx = 0; dev_idx < devices.size(); dev_idx++) {
+        device* currDevice = devs[dev_idx];
+        if (currDevice && devices[dev_idx].device_type) {
+            char deviceType[100];
+            devices[dev_idx].device_type->show(currDevice, NULL, deviceType);
+            printf("Device Type: %s", deviceType);
+        }
+        if (currDevice && devices[dev_idx].device_serial) {
+            char serial[23];
+            devices[dev_idx].device_serial->show(currDevice, NULL, serial);
+            printf("Device Serial: %s", serial);
+        }
+    }
+    */
     /*---------------------------------------------------------*\
     | Start by setting static white                             |
     \*---------------------------------------------------------*/
